@@ -27,7 +27,6 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Deque
 
-import numpy as np
 from scipy.special import ndtr  # standard normal CDF, avoids scipy.stats overhead
 
 
@@ -156,7 +155,9 @@ class StreamingDSR:
     def _downdate(self, x: float) -> None:
         """Remove oldest observation from 4th-order Welford. O(1)."""
         if self._n <= 1:
-            self._n = 0; self._M1 = self._M2 = self._M3 = self._M4 = 0.0; return
+            self._n = 0
+            self._M1 = self._M2 = self._M3 = self._M4 = 0.0
+            return
         n = self._n
         delta = x - self._M1
         delta_n = delta / (n - 1)

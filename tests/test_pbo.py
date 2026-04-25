@@ -1,6 +1,7 @@
 """Tests for StreamingPBO."""
 import numpy as np
 import pytest
+
 from streaming_pbo import StreamingPBO
 
 RNG = np.random.default_rng(42)

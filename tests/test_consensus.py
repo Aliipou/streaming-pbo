@@ -1,6 +1,6 @@
 """Tests for ConsensusAudit."""
 import numpy as np
-import pytest
+
 from streaming_pbo import ConsensusAudit
 
 RNG = np.random.default_rng(7)

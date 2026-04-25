@@ -23,11 +23,10 @@ from __future__ import annotations
 
 import math
 from collections import deque
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Deque
 
 import numpy as np
-
 
 # ---------------------------------------------------------------------------
 # Welford online statistics (O(1) update, O(1) query)
@@ -48,7 +47,10 @@ class _Welford:
     def downdate(self, x: float) -> None:
         """Remove a previously added observation. O(1)."""
         if self.n <= 1:
-            self.n = 0; self.mean = 0.0; self.M2 = 0.0; return
+            self.n = 0
+            self.mean = 0.0
+            self.M2 = 0.0
+            return
         old_mean = (self.n * self.mean - x) / (self.n - 1)
         self.M2 -= (x - self.mean) * (x - old_mean)
         self.mean = old_mean

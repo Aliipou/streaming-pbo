@@ -1,7 +1,9 @@
 """Tests for StreamingDSR."""
 import math
+
 import numpy as np
 import pytest
+
 from streaming_pbo import StreamingDSR
 
 RNG = np.random.default_rng(99)

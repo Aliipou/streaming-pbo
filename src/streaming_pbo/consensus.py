@@ -18,8 +18,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from streaming_pbo.dsr import StreamingDSR, DSRResult
-from streaming_pbo.pbo import StreamingPBO, PBOResult
+from streaming_pbo.dsr import DSRResult, StreamingDSR
+from streaming_pbo.pbo import PBOResult, StreamingPBO
 
 
 @dataclass
