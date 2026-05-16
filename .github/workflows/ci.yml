@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
 
 jobs:
@@ -27,4 +27,10 @@ jobs:
         run: ruff check src tests --select E,W,F,I --ignore E501
 
       - name: Test
-        run: pytest tests/ -q --tb=short --cov=streaming_pbo --cov-report=term-missing
+        run: pytest tests/ -q --tb=short --cov=streaming_pbo --cov-report=term-missing --cov-report=xml
+
+      - uses: codecov/codecov-action@v4
+        if: matrix.python-version == '3.12'
+        with:
+          file: coverage.xml
+        continue-on-error: true
